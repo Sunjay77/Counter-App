@@ -1,22 +1,20 @@
 import React from "react";
+import { useCounterStore } from "../store/useStore";
 
-interface ControlsProps {
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
-}
+const CounterControls: React.FC = () => {
+  const { dec, reset, inc } = useCounterStore();
 
-const CounterControls: React.FC<ControlsProps> = ({ count, setCount }) => {
   return (
     <div className="button-group">
-      <button className="btn decrement" onClick={() => setCount(count - 1)}>
+      <button className="btn decrement" onClick={dec}>
         −
       </button>
 
-      <button className="btn reset" onClick={() => setCount(0)}>
+      <button className="btn reset" onClick={reset}>
         Reset
       </button>
 
-      <button className="btn increment" onClick={() => setCount(count + 1)}>
+      <button className="btn increment" onClick={inc}>
         +
       </button>
     </div>

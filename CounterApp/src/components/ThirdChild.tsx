@@ -1,8 +1,7 @@
-interface Props {
-  count: number;
-}
+import { useCounterStore } from "../store/useStore";
 
-const ThirdChild: React.FC<Props> = ({ count }) => {
-  return <div className="counter-display">{count}</div>;
+const ThirdChild: React.FC = () => {
+  const { count } = useCounterStore();
+  return <div>{count}</div>;
 };
 export default ThirdChild;
